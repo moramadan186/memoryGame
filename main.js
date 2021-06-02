@@ -3,8 +3,8 @@ document.getElementById("splashBtn").onclick=function(){
     document.getElementsByClassName("splash")[0].remove();
     var sound = new Audio('Audio/sound.m4a')
       sound.play();
-      console.log(sound);
       sound.volume = 0.6;
+      sound.loop = true;
   setTimeout(function(){
     var yourName=prompt("Enter your name");
     if(yourName==null || yourName==""){
