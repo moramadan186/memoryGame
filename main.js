@@ -1,5 +1,10 @@
+
 document.getElementById("splashBtn").onclick=function(){
     document.getElementsByClassName("splash")[0].remove();
+    var sound = new Audio('Audio/sound.m4a')
+      sound.play();
+      console.log(sound);
+      sound.volume = 0.6;
   setTimeout(function(){
     var yourName=prompt("Enter your name");
     if(yourName==null || yourName==""){
@@ -61,7 +66,8 @@ for(var i=0 ;i<cards.length;i++){
           filterdCards[0].classList.remove("flipCard");
           filterdCards[1].classList.remove("flipCard");
           tries.innerHTML=parseInt(tries.innerHTML)+1;
-          var fail = new Audio('Audio/fail.m4a')
+          var fail = new Audio('Audio/fail.m4a');
+          fail.volume = 0.7;
           fail.play();
         }
         else{
@@ -70,6 +76,7 @@ for(var i=0 ;i<cards.length;i++){
           filterdCards[0].classList.add("tempFlip");
           filterdCards[1].classList.add("tempFlip");
           var success = new Audio('Audio/success.mp3');
+          success.volume = 0.8;
           success.play();
         }
         cardsContainer.style.pointerEvents="auto";
