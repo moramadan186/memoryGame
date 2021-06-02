@@ -210,6 +210,7 @@ body{
     .cardsContainer .card .front::before{
         font-size: 100px;
     }
+    .result .inform>span,.result .inform button{font-size: 50px;padding: 30px;border-radius: 30px;}
 }
 @media only screen and (min-width:3000px){
     .cardsContainer  {width: 50%;}
