@@ -67,7 +67,7 @@ for(var i=0 ;i<cards.length;i++){
           filterdCards[1].classList.remove("flipCard");
           tries.innerHTML=parseInt(tries.innerHTML)+1;
           var fail = new Audio('Audio/fail.m4a');
-          fail.volume = 0.7;
+          fail.volume = 0.6;
           fail.play();
         }
         else{
@@ -76,7 +76,7 @@ for(var i=0 ;i<cards.length;i++){
           filterdCards[0].classList.add("tempFlip");
           filterdCards[1].classList.add("tempFlip");
           var success = new Audio('Audio/success.mp3');
-          success.volume = 0.8;
+          success.volume = 0.7;
           success.play();
         }
         cardsContainer.style.pointerEvents="auto";
