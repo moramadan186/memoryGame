@@ -1,0 +1,197 @@
+body{
+  background-color: #161024;
+   background-repeat: no-repeat;
+   background-size: cover;
+} 
+*{
+    box-sizing: border-box;
+    font-family: Arial, Tahoma, sans-serif;
+}
+.splash,.result{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(71, 89, 255, 0.651);
+    z-index: 3;
+    perspective: 1000px;
+}
+.splash>span{
+    transition:all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translate(-50%,-50%) scale(0) ;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+.splash>span:hover {background-color: rgb(252, 52, 17);}
+.result{display: none;}
+.removeNone{display: block;}
+.splash>span,.result .inform>span , .result .inform button{
+    background-color: tomato;
+    font-size: 17px;
+    padding: 15px;
+    color:white;
+    border-radius: 10px;
+    user-select: none;
+}
+.result .inform{text-align: center; width: 100%;}
+.result .inform>span{min-width: 260px;display: inline-block}
+.result .inform button{
+    margin: 10px 0px 0px 15px;
+    border: none; cursor: pointer;
+    background-color: rgb(1, 214, 1); 
+    animation: bobBob 0.5s infinite alternate ;
+}
+@keyframes bobBob {
+    from {transform:scale(1) ;}
+    to {transform:scale(1.1) ;}
+    
+}
+.result .inform button:hover{background-color: rgb(0, 240, 0);}
+.result .inform,.splash>span{    
+    position:absolute;
+    top:50%;left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.gameInfo{
+    border: 1px solid rgb(245, 122, 122);
+    padding: 10px;
+    margin:5px auto 20px;
+    width: 70%;
+    overflow: hidden;
+    color: whitesmoke;
+    font-size: 18px;
+  
+}
+.gameInfo .userName{
+    float: left;
+    width: 50%;
+}
+.gameInfo .wrTries{
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+.cardsContainer  {
+    margin:0 auto;
+    width: 62%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;
+    
+}
+.cardsContainer .card{
+    position: relative;
+    height: 145px;
+    flex-grow: 0;
+    flex-basis: 145px;
+    transition:transform 0.3s ease-in-out;
+    transform-style:preserve-3d;
+    cursor: pointer;
+    margin: 0 5px 5px;
+}
+.cardsContainer .card .face{
+    width:100%;
+    height: 100%;
+    position:absolute;
+    backface-visibility: hidden;
+}
+.cardsContainer .card .front{
+    background-color: rgb(245, 122, 122);
+    z-index:2;
+    text-align: center;
+    line-height: 145px;
+    transition: background-color 0.3s ease-in-out;
+}
+.cardsContainer .card .front:hover{
+    background-color: rgb(255 36 36);
+}
+.cardsContainer .card .back{
+    background-color: rgb(236, 233, 233);
+    padding:10px;
+    border-radius: 15px;
+    z-index:1;
+    transform: rotateY(180deg);
+    transition:opacity 7s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    opacity: 1;
+}
+.cardsContainer .card .back img{
+    width:100%;
+    height: 100%;
+    
+}
+.cardsContainer .card:hover {
+ transform: rotate(6deg) scale(1.01)
+}
+
+.cardsContainer .card .front::before{
+    content:"!!";
+    color: white;
+    font-size: 70px;
+
+}
+
+.memory-game-blocks.no-clicking {
+    pointer-events: none;
+}
+
+.cardsContainer .card.flipCard,
+.cardsContainer .card.tempFlip{
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+.cardsContainer .card .back.beforeStart{
+    transform: rotateY(0deg);
+    z-index: 2;
+    border-radius: 0;
+    opacity:0;
+}
+
+@media only screen and (max-width: 768px) {
+    .gameInfo{
+        border: 3px solid rgb(245, 122, 122);
+        padding: 10px;
+        margin:5px auto 20px;
+        width: 90%;
+        font-size: 15px;
+      
+    }
+    .cardsContainer  {width: 100%;}
+    .cardsContainer .card{
+        position: relative;
+        height: 70px;
+        flex-grow: 0;
+        flex-basis: 70px;
+    }
+    .cardsContainer .card .front{
+        line-height: 70px;
+    }
+    .cardsContainer .card .front::before{
+        font-size: 25px;
+    }
+    .result .inform button{margin-left:0;}
+}
+@media only screen and (min-width: 769px) and (max-width:1200px) {
+    .gameInfo{
+        border: 3px solid rgb(245, 122, 122);
+        padding: 10px;
+        margin:5px auto 20px;
+        width: 90%;
+        font-size: 15px;
+      
+    }
+    .cardsContainer  {width: 85%;}
+    .cardsContainer .card{
+        position: relative;
+        flex-grow: 0;
+    }
+    .cardsContainer .card .front::before{
+        font-size: 35px;
+    }
+}
