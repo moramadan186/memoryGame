@@ -195,3 +195,35 @@ body{
         font-size: 35px;
     }
 }
+@media only screen and (min-width:1980px){
+    .cardsContainer  {width: 70%;}
+    .cardsContainer .card{
+        position: relative;
+        height: 250px;
+        flex-grow: 0;
+        flex-basis: 250px;
+        margin: 10px;
+    }
+    .cardsContainer .card .front{
+        line-height: 250px;
+    }
+    .cardsContainer .card .front::before{
+        font-size: 100px;
+    }
+}
+@media only screen and (min-width:3000px){
+    .cardsContainer  {width: 50%;}
+    .cardsContainer .card{
+        position: relative;
+        height: 300px;
+        flex-grow: 0;
+        flex-basis: 300px;
+        margin: 10px;
+    }
+    .cardsContainer .card .front{
+        line-height: 300px;
+    }
+    .cardsContainer .card .front::before{
+        font-size: 100px;
+    }
+}
